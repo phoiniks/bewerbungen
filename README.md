@@ -5,7 +5,8 @@ Installieren Sie MariaDB auf Ihrem Gerät!
 1.  Nachdem Sie das Repository geklont haben, begeben Sie sich per cd in das Verzeichnis bewerbungen.
 2.  Dort führen Sie den Befehl 'mvn package' aus (Hierzu muss Maven installiert und konfiguriert sein!)
 3.  Erstellen Sie eine einfache Textdatei "connect.txt" entweder im Verzeichnis bewerbungen/src/main/java
-    oder bewerbungen/target/classes mit drei Zeilen:
+    oder bewerbungen/target/classes mit drei direkt untereinander folgenden Zeilen (ohne Leerzeile
+    dazwischen, beginnend in der ersten Zeile der Datei!)c:
 
     benutzer  (Ihr Benutzername: z.B. Franz)
     
