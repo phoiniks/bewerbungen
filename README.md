@@ -17,7 +17,7 @@ Installieren Sie MariaDB auf Ihrem Gerät!
 4.  Anschließend können Sie das Hauptprogramm starten, indem Sie im Verzeichnis bewerbungen/target/classes
     das Bash-Skript runJAVA.sh mit ./runJAVA.sh starten (Diese Prozedur wird demnächst vereinfacht!)
 5.  Auf der sich nun öffnenden Oberfläche tragen Sie die gewünschten Daten ein und speichern sie mit
-    SPEICHERN-Knopf in Ihrer Datenbank ab.
+    dem SPEICHERN-Knopf in Ihrer Datenbank ab.
     
 Das Python3-Skript dient dann der Erstellung eines PDFs, das sowohl Ihr Anschreiben als auch Ihren
 Lebenslauf und Zeugnisse enthält. Allerdings müssen Sie hierzu LaTeX und die entsprechenden Bibliotheken installieren!
