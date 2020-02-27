@@ -8,7 +8,9 @@ Installieren Sie MariaDB auf Ihrem Gerät!
     oder bewerbungen/target/classes mit drei Zeilen:
 
     benutzer  (Ihr Benutzername: z.B. Franz)
+    
     passwort  (Ihr Passwort:     z.B. Holleradudödldu)
+    
     datenbank (Ihre Datenbank:   z.B. zickezackehuehnerkacke)
 
 4.  Anschließend können Sie das Hauptprogramm starten, indem Sie im Verzeichnis bewerbungen/target/classes
