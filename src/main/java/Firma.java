@@ -3,33 +3,32 @@ import java.sql.DriverManager.*;
 import java.util.stream.*;
 import java.util.*;
 import java.io.*;
-import java.time.*;
 
 
 class Firma{
-    private   String     bezeichnung;
-    private   String     firma;
-    private   String     ansprechpartner;
-    private   String     anrede;
-    private   String     strasse;
-    private   String     plz;
-    private   String     ort;
-    private   String     telefon;
-    private   String     mobil;
-    private   String     email;
-    private   String     website;
-    private   String     quelle;
-    private   String     ergebnis;
-    private   String     datenbank;
-    private   String     url;
-    private   Scanner    scan = new Scanner(System.in);
-    private   Connection con       = null;
-    private   ResultSet  rs        = null;
+    private       String     bezeichnung;
+    private       String     firma;
+    private       String     ansprechpartner;
+    private       String     anrede;
+    private       String     strasse;
+    private       String     plz;
+    private       String     ort;
+    private       String     telefon;
+    private       String     mobil;
+    private       String     email;
+    private       String     website;
+    private       String     quelle;
+    private       String     ergebnis;
+    private       String     datenbank;
+    private       String     url;
+    private       Scanner    scan = new Scanner(System.in);
+    private       Connection con       = null;
+    private       ResultSet  rs        = null;
     private final String     JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-    private   String     USER      = null;
-    private   String     PASS      = null;
-    private   String     DB        = null;
-    private   String[]   datensatz = null;
+    private       String     USER      = null;
+    private       String     PASS      = null;
+    private       String     DB        = null;
+    private       String[]   datensatz = null;
 
     private static final String         create = "CREATE TABLE IF NOT EXISTS bewerbungen(id MEDIUMINT PRIMARY KEY AUTO_INCREMENT, bezeichnung VARCHAR(255), firma VARCHAR(255), ansprechpartner VARCHAR(255), anrede VARCHAR(255), strasse VARCHAR(255), plz VARCHAR(255), "
         + "ort VARCHAR(255), telefon VARCHAR(255), mobil VARCHAR(255), email VARCHAR(255), website VARCHAR(255), quelle VARCHAR(255), ergebnis VARCHAR(255), zeit TIMESTAMP, CONSTRAINT unID UNIQUE(bezeichnung, firma, ansprechpartner))";
@@ -127,14 +126,6 @@ class Firma{
 	    datensatz = new String[]{ bezeichnung, firma, ansprechpartner, anrede,
 				      strasse, plz, ort, telefon, mobil,
 				      email, website, quelle, ergebnis };
-
-	    // LocalDateTime tmstmp = LocalDateTime.now();
-
-	    // String key = tmstmp + "|" + bezeichnung + "|" + firma + "|" + ansprechpartner;
-
-	    // System.out.println(key);
-	    // System.out.println(tmstmp);
-	    // System.out.println(Arrays.toString(datensatz));
 
 	    for(int i = 1, j = 0; i <= datensatz.length; i++, j++){
 		
