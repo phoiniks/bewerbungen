@@ -1,6 +1,6 @@
 # bewerbungen
 
-Installieren Sie MariaDB auf Ihrem Gerät!
+Installieren Sie MariaDB auf Ihrem Gerät und richten Sie eine Datenbank ein!
 
 1.  Nachdem Sie das Repository geklont haben, begeben Sie sich per cd in das Verzeichnis bewerbungen.
 2.  Dort führen Sie den Befehl 'mvn package' aus (Hierzu muss Maven installiert und konfiguriert sein!)
