@@ -56,8 +56,8 @@ class BewerbungPDF(dict):
         self.db = ""
 
 
-    def mkCredentials(self):
-        with open("credentials.txt") as datei:
+    def mkConnectData(self):
+        with open("connect.txt") as datei:
             stripper = lambda a: a.strip()
             credentials = list(map(stripper, datei.readlines()))
 
@@ -145,7 +145,7 @@ log.debug("BEGINN")
 if __name__ == "__main__":
 
     bewerbung = BewerbungPDF()
-    bewerbung.mkCredentials()
+    bewerbung.mkConnectData()
     bewerbung.mkDict()
     bewerbung.fillInTemplate()
     bewerbung.mkPDF()
