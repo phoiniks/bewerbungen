@@ -1,5 +1,10 @@
 # bewerbungen
 
+Für den Fall, dass Sie lieber SQLite verwenden, checken Sie bitte den Branch SQLite3Powered aus:
+Er stellt die entsprechenden SQL-Anweisungen und den Zugriff auf den SQLite3-Treiber zur Verfügung.
+
+Anderenfalls beachten Sie bitte die folgende Gebrauchsanweisung:
+
 Installieren Sie MariaDB auf Ihrem Gerät und richten Sie eine Datenbank ein!
 
 1.  Nachdem Sie das Repository geklont haben, begeben Sie sich per cd in das Verzeichnis bewerbungen.
