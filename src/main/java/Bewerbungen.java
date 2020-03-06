@@ -11,7 +11,7 @@ import java.util.stream.*;
 import java.util.*;
 import java.io.*;
 
-/* andreas@grellopolis.de, 2020 */
+/* phoiniks@grellopolis.de, 2020 */
 
 public class Bewerbungen{
 
@@ -160,8 +160,6 @@ public class Bewerbungen{
      * @param args
      */
     public static void main(String[] args) throws ClassNotFoundException {
-	// TODO Auto-generated method stub
-
 	SwingUtilities.invokeLater(new Runnable() {
 		public void run() {
 		    new Bewerbungen();
