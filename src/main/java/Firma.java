@@ -24,19 +24,19 @@ class Firma{
     private       Scanner    scan = new Scanner(System.in);
     private       Connection con       = null;
     private       ResultSet  rs        = null;
-    private final String     JDBC_DRIVER = "jdbc:sqlite";
+    private final String     JDBC_DRIVER = "org.mariadb.jdbc.Driver";
     private       String     USER      = null;
     private       String     PASS      = null;
-    private       String     DB        = "BEWERBUNGEN.DB";
+    private       String     DB        = null;
     private       String[]   datensatz = null;
 
-    private static final String         create = "CREATE TABLE IF NOT EXISTS bewerbungen(id INTEGER PRIMARY KEY, bezeichnung TEXT, firma TEXT, ansprechpartner TEXT, anrede TEXT, strasse TEXT, plz TEXT, "
-        + "ort TEXT, telefon TEXT, mobil TEXT, email TEXT, website TEXT, quelle TEXT, ergebnis TEXT, zeit DATE DEFAULT(DATETIME('now', 'localtime')), CONSTRAINT unID UNIQUE(bezeichnung, firma, ansprechpartner))";
+    private static final String         create = "CREATE TABLE IF NOT EXISTS bewerbungen(id MEDIUMINT PRIMARY KEY AUTO_INCREMENT, bezeichnung VARCHAR(255), firma VARCHAR(255), ansprechpartner VARCHAR(255), anrede VARCHAR(255), strasse VARCHAR(255), plz VARCHAR(255), "
+        + "ort VARCHAR(255), telefon VARCHAR(255), mobil VARCHAR(255), email VARCHAR(255), website VARCHAR(255), quelle VARCHAR(255), ergebnis VARCHAR(255), zeit TIMESTAMP, CONSTRAINT unID UNIQUE(bezeichnung, firma, ansprechpartner))";
 
     private static final String     insert = "INSERT INTO bewerbungen (bezeichnung, firma, ansprechpartner, anrede, strasse, plz, ort, telefon, mobil, email, website, quelle, ergebnis) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-    Statement         stmt  = null;
-    PreparedStatement pStmt = null;
+    Statement         stmt;
+    PreparedStatement pStmt;
 
 
     Firma(){}
@@ -58,19 +58,39 @@ class Firma{
 	this.email           = list.get(9);
 	this.website         = list.get(10);
 	this.quelle          = list.get(11);
-	this.ergebnis        = list.get(12);	
+	this.ergebnis        = list.get(12);
+	
+	List<String> connect = new ArrayList<>();
+
+	try(BufferedReader br = new BufferedReader(new FileReader(new File("connect.txt")))){
+	    connect = br.lines().collect(Collectors.toList());
+
+	    USER = connect.get(0);
+	    PASS = connect.get(1);
+	    DB   = connect.get(2);
+	    
+	    System.out.println(connect);
+	}catch(FileNotFoundException fnfe){
+	    System.out.println("********************************************************");
+	    System.out.println("Datei connect.txt m. Zugangsdaten für mariadb fehlt!");
+	    System.out.println("Bitte im Verzeichnis der Datei Main.java oder Main.class\neine zweizeilige Textdatei mit\nBenutzername (Zeile 1)\nund Passwort (Zeile 2)\nanlegen.");
+	    System.out.println("********************************************************");
+	    System.exit(-1);
+	}catch(IOException ioe){
+	    ioe.printStackTrace();
+	}	
     }
     
 
     public Connection connectDatenbank(){
 	
-	url = JDBC_DRIVER + ":" + System.getProperty("user.home") + "/" + DB;
+	url = "jdbc:mariadb://localhost:3306/" + DB;
 	
 	System.out.println(url);
 	
 	try{
 	    con = DriverManager.getConnection(url, USER, PASS);
-	    System.out.println("Verbindung zu SQLite3 BEWERBUNGEN.DB hergestellt.");
+	    System.out.println("Verbindung zu MariaDB hergestellt.");
 	    stmt = con.createStatement();
 	    stmt.execute(create);
 	}catch(SQLException e){
