@@ -65,7 +65,6 @@ public class Bewerbungen{
     JPanel jp1;
     JPanel jp2;
     JPanel jp3;
-    JPanel jp4;
   
     public Bewerbungen() {
 	java.util.List<String> list = new java.util.ArrayList<>(13);
@@ -137,22 +136,19 @@ public class Bewerbungen{
 	jp3 = new JPanel(new GridLayout(1, 1));
 	jp3.setPreferredSize(new Dimension(280, 60));
 	jp3.setOpaque(true);
-	jp3.add(jlabPruef1);
-    
-	jp4 = new JPanel(new GridLayout(1, 1));
-	jp4.setPreferredSize(new Dimension(280, 60));
-	jp4.setOpaque(true);
-	jp4.add(jlabPruef2);
+	jp3.add(jlabPruef2);
 
-	JTabbedPane jtp1 = new JTabbedPane();
-	JTabbedPane jtp2 = new JTabbedPane();
+	JTabbedPane jtp = new JTabbedPane();
 
-	jtp1.addTab("Eingabe", jp1);
-	jfrm.add(jtp1);
+	jtp.addTab("Eingabe", jp1);
+	jfrm.add(jtp);
+	// jfrm.add(jp3);
+	
+	jtp.addTab("Templates", new JLabel("Templates"));
+	jfrm.add(jtp);
+
 	jfrm.add(jp2);
-	jfrm.add(jp3);
-	jfrm.add(jp4);
-
+	
 	jfrm.setVisible(true);
     }
 
