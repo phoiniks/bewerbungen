@@ -11,7 +11,7 @@ import java.util.stream.*;
 import java.util.*;
 import java.io.*;
 
-/* andreas@grellopolis.de, 2020 */
+/* phoiniks@grellopolis.de, 2020 */
 
 public class Bewerbungen{
 
@@ -67,101 +67,84 @@ public class Bewerbungen{
     JPanel jp3;
   
     public Bewerbungen() {
-	java.util.List<String> list = new java.util.ArrayList<>(13);
-	
-	JFrame jfrm = new JFrame("Stellenangebote und Bewerbungen");
-    
-	jfrm.getContentPane().setLayout(new FlowLayout());
-    
-	jfrm.setSize(460, 400);
-    
-	jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
-	jp1 = new JPanel(new GridLayout(13, 2));
-	jp1.setPreferredSize(new Dimension(450, 280));
-	jp1.setOpaque(true);
-    
-	String[] LabStrListe = {"Bezeichnung:", "Firma:", "Ansprechpartner:", "Anrede:",
+		java.util.List<String> list = new java.util.ArrayList<>(13);
+
+		JFrame jfrm = new JFrame("Stellenangebote und Bewerbungen");
+
+		jfrm.getContentPane().setLayout(new FlowLayout());
+
+		jfrm.setSize(460, 400);
+
+		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		jp1 = new JPanel(new GridLayout(13, 2));
+		jp1.setPreferredSize(new Dimension(450, 280));
+		jp1.setOpaque(true);
+
+		String[] LabStrListe = {"Bezeichnung:", "Firma:", "Ansprechpartner:", "Anrede:",
 				"Straße:", "Plz:", "Ort:", "Telefon (Festnetz):",
 				"Mobil:", "E-Mail:", "Website:",
-				"Quelle:", "Ergebnis:" };
-    
-	String[] TFStrListe = {"Stellenbezeichnung", "Firma", "Ansprechpartner", "Anrede",
-			       "Straße", "Plz", "Ort", "Telefon (Festnetz)",
-			       "Mobil", "E-Mail", "Website", "Quelle",
-			       "steht noch aus"};
-    
-	for(int i = 0; i < JLabList.length; i++)
-	    {
-		JLabList[i]  = new JLabel(LabStrListe[i]);
-		jp1.add(JLabList[i]);
-		JTFList[i] = new JTextField(TFStrListe[i]);
-		jp1.add(JTFList[i]);
-	    }            
-    
-	JButton jbtnAbbrechen = new JButton("Abbruch");
-	JButton jbtnSpeichern = new JButton("Speichern");
-    
-	jlabPruef1 = new JLabel();
-	jlabPruef2 = new JLabel();
-    
-	jbtnSpeichern.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent ae) {
-		    for(JTextField jtf : JTFList)
-			list.add(jtf.getText());
+				"Quelle:", "Ergebnis:"};
 
-		    Firma firma = new Firma(list);
-		    firma.connectDatenbank();
-		    firma.erstelleDatenbankTabelle();
-		    firma.datensatzEinfuegen();
+		String[] TFStrListe = {"Stellenbezeichnung", "Firma", "Ansprechpartner", "Anrede",
+				"Straße", "Plz", "Ort", "Telefon (Festnetz)",
+				"Mobil", "E-Mail", "Website", "Quelle",
+				"steht noch aus"};
+
+		for (int i = 0; i < JLabList.length; i++) {
+			JLabList[i] = new JLabel(LabStrListe[i]);
+			jp1.add(JLabList[i]);
+			JTFList[i] = new JTextField(TFStrListe[i]);
+			jp1.add(JTFList[i]);
 		}
-		
-	    });
-	
-	jbtnAbbrechen.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent ae) {
-		    System.exit(0);
-		}
-	    });
-    
-	jp2 = new JPanel(new GridLayout(1, 2));
-	jp2.setPreferredSize(new Dimension(280, 30));
-	jp2.setOpaque(true);    
-	jp2.add(jbtnAbbrechen);
-	jp2.setPreferredSize(new Dimension(350, 30));
-	jp2.add(Box.createVerticalStrut(60));
-	jp2.setPreferredSize(new Dimension(350, 30));	
-	jp2.add(jbtnSpeichern);
 
-	jp3 = new JPanel(new GridLayout(1, 1));
-	jp3.setPreferredSize(new Dimension(280, 60));
-	jp3.setOpaque(true);
-	jp3.add(jlabPruef2);
+		JButton jbtnAbbrechen = new JButton("Abbruch");
+		JButton jbtnSpeichern = new JButton("Speichern");
 
-	JTabbedPane jtp = new JTabbedPane();
+		jlabPruef1 = new JLabel();
+		jlabPruef2 = new JLabel();
 
-	jtp.addTab("Eingabe", jp1);
-	jfrm.add(jtp);
-	// jfrm.add(jp3);
-	
-	jtp.addTab("Templates", new JLabel("Templates"));
-	jfrm.add(jtp);
+		jbtnSpeichern.addActionListener(ae -> {
+			for (JTextField jtf : JTFList)
+				list.add(jtf.getText());
 
-	jfrm.add(jp2);
-	
-	jfrm.setVisible(true);
-    }
+			Firma firma = new Firma(list);
+			firma.connectDatenbank();
+			firma.erstelleDatenbankTabelle();
+			firma.datensatzEinfuegen();
+		});
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) throws ClassNotFoundException {
-	// TODO Auto-generated method stub
+		jbtnAbbrechen.addActionListener(ae -> System.exit(0));
 
-	SwingUtilities.invokeLater(new Runnable() {
-		public void run() {
-		    new Bewerbungen();
-		}    
-	    });
-    }
+		jp2 = new JPanel(new GridLayout(1, 2));
+		jp2.setPreferredSize(new Dimension(280, 30));
+		jp2.setOpaque(true);
+		jp2.add(jbtnAbbrechen);
+		jp2.setPreferredSize(new Dimension(350, 30));
+		jp2.add(Box.createVerticalStrut(60));
+		jp2.setPreferredSize(new Dimension(350, 30));
+		jp2.add(jbtnSpeichern);
+
+		jp3 = new JPanel(new GridLayout(1, 1));
+		jp3.setPreferredSize(new Dimension(280, 60));
+		jp3.setOpaque(true);
+		jp3.add(jlabPruef2);
+
+		JTabbedPane jtp = new JTabbedPane();
+
+		jtp.addTab("Eingabe", jp1);
+		jfrm.add(jtp);
+		// jfrm.add(jp3);
+
+		jtp.addTab("Templates", new JLabel("Templates"));
+		jfrm.add(jtp);
+
+		jfrm.add(jp2);
+
+		jfrm.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(Bewerbungen::new);
+	}
 }
