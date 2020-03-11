@@ -125,19 +125,12 @@ public class Bewerbungen{
 		jp2.setPreferredSize(new Dimension(350, 30));
 		jp2.add(jbtnSpeichern);
 
-		jp3 = new JPanel(new GridLayout(1, 1));
-		jp3.setPreferredSize(new Dimension(280, 60));
-		jp3.setOpaque(true);
-		jp3.add(jlabPruef2);
-
 		JTabbedPane jtp = new JTabbedPane();
 
 		jtp.addTab("Eingabe", jp1);
-		jfrm.add(jtp);
-		// jfrm.add(jp3);
-
 		jtp.addTab("Vorlagen", new JLabel("Vorlagen"));
 		jtp.addTab("Konfiguration", new JLabel("Konfiguration"));
+
 		jfrm.add(jtp);
 
 		jfrm.add(jp2);
