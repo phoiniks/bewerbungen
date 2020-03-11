@@ -136,7 +136,8 @@ public class Bewerbungen{
 		jfrm.add(jtp);
 		// jfrm.add(jp3);
 
-		jtp.addTab("Templates", new JLabel("Templates"));
+		jtp.addTab("Vorlagen", new JLabel("Vorlagen"));
+		jtp.addTab("Konfiguration", new JLabel("Konfiguration"));
 		jfrm.add(jtp);
 
 		jfrm.add(jp2);
