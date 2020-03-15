@@ -20,7 +20,7 @@ Installieren Sie MariaDB auf Ihrem Gerät und richten Sie eine Datenbank ein!
     datenbank (Ihre Datenbank:   z.B. zickezackehuehnerkacke)
 
 4.  Anschließend können Sie das Hauptprogramm starten, indem Sie im Verzeichnis bewerbungen/target/classes
-    das Bash-Skript runJAVA.sh mit ./runJAVA.sh starten (Diese Prozedur wird demnächst vereinfacht!)
+    das Bash-Skript run.sh mit ./run.sh starten (Diese Prozedur wird demnächst vereinfacht!)
 5.  Auf der sich nun öffnenden Oberfläche tragen Sie die gewünschten Daten ein und speichern sie mit
     dem SPEICHERN-Knopf in Ihrer Datenbank ab.
     
