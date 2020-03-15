@@ -22,4 +22,8 @@ Installieren Sie MariaDB auf Ihrem Gerät und richten Sie eine Datenbank ein!
 Das Python3-Skript dient dann der Erstellung eines PDFs, das sowohl Ihr Anschreiben als auch Ihren
 Lebenslauf und Zeugnisse enthält. Allerdings müssen Sie hierzu LaTeX und die entsprechenden Bibliotheken installieren!
 
-Wenn Sie unter Linux arbeiten, bin ich Ihnen dabei gern behilflich!
+Außerdem benötigen Sie LaTeX-Templates, damit das Python-Skript die gewünschen PDF-Dokumente erstellt.
+Sie brauchen darüber hinaus sowohl einen Lebenslauf als auch Zeugnisse, da diese für ein ordnungsgemäßes Funktionieren
+des Skripts ebensfalls erforderlich sind.
+
+Wenn Sie unter Linux arbeiten, bin ich Ihnen gern behilflich!
