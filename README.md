@@ -27,3 +27,5 @@ Sie brauchen darüber hinaus sowohl einen Lebenslauf als auch Zeugnisse, da dies
 des Skripts ebensfalls erforderlich sind.
 
 Wenn Sie unter Linux arbeiten, bin ich Ihnen gern behilflich!
+
+Wenn Sie keine grafische Oberfläche verwenden wollen, starten Sie einfach die Main.class in : java -cp ".:*.jar" Main
