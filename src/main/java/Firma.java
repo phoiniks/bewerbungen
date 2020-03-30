@@ -40,9 +40,6 @@ class Firma {
     }
 
     Firma(List<String> list) {
-        System.out.println(list);
-        System.out.println("CONSTRUCTOR");
-
         this.bezeichnung = list.get(0);
         this.firma = list.get(1);
         this.ansprechpartner = list.get(2);
@@ -56,8 +53,6 @@ class Firma {
         this.website = list.get(10);
         this.quelle = list.get(11);
         this.ergebnis = list.get(12);
-
-//        List<String> connect = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(new File("connect.txt")))) {
             List<String> connect = br.lines().collect(Collectors.toList());
@@ -90,10 +85,8 @@ class Firma {
             System.out.println("Verbindung zu MariaDB hergestellt.");
             stmt = con.createStatement();
             stmt.execute(create);
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
-            System.out.println(getLineNumber());
-        } catch (NullPointerException e) {
             System.out.println(getLineNumber());
         }
 
@@ -107,10 +100,8 @@ class Firma {
             con.setAutoCommit(true);
             stmt = con.createStatement();
             stmt.execute(create);
-        } catch (SQLException e) {
+        } catch (SQLException | NullPointerException e) {
             e.printStackTrace();
-            System.out.println(getLineNumber());
-        } catch (NullPointerException e) {
             System.out.println(getLineNumber());
         }
     }
@@ -125,7 +116,6 @@ class Firma {
                     email, website, quelle, ergebnis};
 
             for (int i = 1, j = 0; i <= datensatz.length; i++, j++) {
-
                 pStmt.setString(i, datensatz[j]);
             }
 
@@ -138,7 +128,7 @@ class Firma {
                 stmt.close();
                 con.close();
                 System.out.println("Verbindung geschlossen");
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 e.printStackTrace();
             }
         }
@@ -152,10 +142,8 @@ class Firma {
 
             rs = stmt.executeQuery(select);
             con.commit();
-        } catch (NullPointerException e) {
-            System.out.println(getLineNumber());
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException | NullPointerException e) {
+	    e.printStackTrace();	    
             System.out.println(getLineNumber());
         }
 
@@ -182,7 +170,7 @@ class Firma {
             try {
                 stmt.close();
                 con.close();
-            } catch (SQLException e) {
+            } catch (SQLException | NullPointerException e) {
                 System.out.println(e.getMessage());
                 e.getStackTrace();
             }

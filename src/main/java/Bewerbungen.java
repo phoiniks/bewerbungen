@@ -52,19 +52,13 @@ public class Bewerbungen{
 			     jtfTelefon,  jtfMobil,  jtfEmail, jtfWebsite,
 			     jtfQuelle, jtfErgebnis };
 
-    JRadioButton jrbOptionOff;
-    JRadioButton jrbOptionOn;
-  
     JButton jbtnSpeichern;
     JButton jbtnAbbrechen;
 
     String bezeichnung, firma, ansprechpartner, anrede, strasse, plz, ort, telefon, mobil, email, website, quelle, ergebnis;
 
-    JLabel jlabPruef1, jlabPruef2;
-  
     JPanel jp1;
     JPanel jp2;
-    JPanel jp3;
   
     public Bewerbungen() {
 		java.util.List<String> list = new java.util.ArrayList<>(13);
@@ -100,9 +94,6 @@ public class Bewerbungen{
 
 		JButton jbtnAbbrechen = new JButton("Abbruch");
 		JButton jbtnSpeichern = new JButton("Speichern");
-
-		jlabPruef1 = new JLabel();
-		jlabPruef2 = new JLabel();
 
 		jbtnSpeichern.addActionListener(ae -> {
 			for (JTextField jtf : JTFList)
